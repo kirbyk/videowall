@@ -1,4 +1,5 @@
 class Panel < ActiveRecord::Base
+  has_and_belongs_to_many :styles
   validates_presence_of :content, :height, :width, :name
   validates_inclusion_of :active, :in => [true, false]
 
@@ -8,11 +9,11 @@ class Panel < ActiveRecord::Base
 
   private
   def wrapper(inner)
-    return "<div class='blue panel' style='#{wrapper_css}'>#{inner}</div>".html_safe
+    return "<div class='panel' style='#{wrapper_css}'>#{inner}</div>".html_safe
   end
 
   def wrapper_css
-    styles = []
+    styles = self.styles.map {|s| s.css}
     styles << find_width
     styles << find_height
     return styles.join(';')
