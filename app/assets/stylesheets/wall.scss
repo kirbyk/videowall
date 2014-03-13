@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  background-color: #000;
+  color: #fff;
+}
+
+.panel{
+  box-sizing: border-box;
+  border: 5px solid #000;
+  float: left;
+}
+
+.blue{
+  background-image: -webkit-linear-gradient(left top, #1ba1e2 0%, #1789c1 100%);
+}
+
+.red{
+  background-image: -webkit-linear-gradient(left top, #7a000b 0%, #6c000a 100%);
+}
+
+.green{
+  background-image: -webkit-linear-gradient(left top, #339933 0%, #2b802c 100%);
+}
