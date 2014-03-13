@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Order</th>
       <th>Name</th>
       <th>Width</th>
       <th>Height</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @panels.each do |panel| %>
       <tr>
+        <td><%= panel.try(:order) %></td>
         <td><%= panel.name %></td>
         <td><%= panel.width %></td>
         <td><%= panel.height %></td>

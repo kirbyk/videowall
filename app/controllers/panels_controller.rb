@@ -1,13 +1,14 @@
 class PanelsController < ApplicationController
   before_action :set_panel, only: [:show, :edit, :update, :destroy]
+  before_filter :prepare_styles
 
   def wall
-    @panels = Panel.where(active: true).order(created_at: :desc)
+    @panels = Panel.where(active: true).order(order: :asc)
   end
   # GET /panels
   # GET /panels.json
   def index
-    @panels = Panel.all
+    @panels = Panel.order(order: :asc)
   end
 
   # GET /panels/1
@@ -65,6 +66,10 @@ class PanelsController < ApplicationController
   end
 
   private
+    def prepare_styles
+      @styles = Style.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_panel
       @panel = Panel.find(params[:id])
@@ -72,6 +77,6 @@ class PanelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def panel_params
-      params.require(:panel).permit(:name, :width, :height, :content, :active)
+      params.require(:panel).permit(:name, :width, :height, :content, :active, :style_ids)
     end
 end

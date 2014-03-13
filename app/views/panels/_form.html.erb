@@ -28,6 +28,10 @@
     <%= f.text_area :content %>
   </div>
   <div class="field">
+    <%= f.label :style %><br>
+    <%= f.collection_select :style_ids, @styles, :id, :name, {:include_blank => "Please select"}, class: 'form-control' %>
+  </div>
+  <div class="field">
     <%= f.label :active %><br>
     <%= f.check_box :active %>
   </div>
