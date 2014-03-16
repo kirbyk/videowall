@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313074310) do
+ActiveRecord::Schema.define(version: 20140313211312) do
 
   create_table "panels", force: true do |t|
     t.string   "name"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140313074310) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order"
+    t.text     "css"
+    t.text     "js"
   end
 
   create_table "panels_styles", id: false, force: true do |t|

@@ -1,10 +1,11 @@
-*{
-  margin: 0;
-  padding: 0;
+@font-face{
+  font-family: SegoeWP-Light;
+  src: url('/fonts/SegoeWP-Light.woff');
 }
 
 html, body{
   height: 100%;
+  font-family: SegoeWP-Light;
 }
 
 body{
@@ -13,7 +14,9 @@ body{
 }
 
 .panel{
+  /* font-size: 1em; */
   box-sizing: border-box;
   border: 5px solid #000;
   float: left;
+  /* line-height: 400%; */
 }
