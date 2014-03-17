@@ -1,6 +1,5 @@
 <div class="field">
   <%= f.label :content, 'Text Content' %><br>
   <%= f.text_area :content %>
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove" %>
+  <%= link_to_remove_fields "remove", f %>
 </div>

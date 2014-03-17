@@ -15,10 +15,6 @@ class PanelsController < ApplicationController
 
   def new
     @panel = Panel.new
-    3.times do
-      panel_data = @panel.panel_datas.build
-      2.times {panel_data.texts.build}
-    end
   end
 
   def edit

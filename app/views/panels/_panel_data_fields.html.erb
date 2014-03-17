@@ -1,11 +1,10 @@
 <div class="field">
   <%= f.label :name %><br>
   <%= f.text_field :name %>
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove Panel Data" %>
+  <%= link_to_remove_fields "remove panel data", f %>
+
+  <%= f.fields_for :texts do |builder| %>
+    <%= render 'text_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields 'Add Text', f, :texts %>
 </div>
-
-<%= f.fields_for :texts do |builder| %>
-  <%= render 'text_fields', f: builder %>
-<% end %>
-
