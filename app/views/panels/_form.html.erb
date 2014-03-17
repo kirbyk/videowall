@@ -43,6 +43,11 @@
     <%= f.label :active %><br>
     <%= f.check_box :active %>
   </div>
+
+  <%= f.fields_for :panel_datas do |builder| %>
+    <%= render 'panel_data_fields', f: builder %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

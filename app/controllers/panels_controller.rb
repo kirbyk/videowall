@@ -5,28 +5,25 @@ class PanelsController < ApplicationController
   def wall
     @panels = Panel.where(active: true).order(order: :asc)
   end
-  # GET /panels
-  # GET /panels.json
+
   def index
     @panels = Panel.order(order: :asc)
   end
 
-  # GET /panels/1
-  # GET /panels/1.json
   def show
   end
 
-  # GET /panels/new
   def new
     @panel = Panel.new
+    3.times do
+      panel_data = @panel.panel_datas.build
+      2.times {panel_data.texts.build}
+    end
   end
 
-  # GET /panels/1/edit
   def edit
   end
 
-  # POST /panels
-  # POST /panels.json
   def create
     @panel = Panel.new(panel_params)
 
@@ -41,8 +38,6 @@ class PanelsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /panels/1
-  # PATCH/PUT /panels/1.json
   def update
     respond_to do |format|
       if @panel.update(panel_params)
@@ -55,8 +50,6 @@ class PanelsController < ApplicationController
     end
   end
 
-  # DELETE /panels/1
-  # DELETE /panels/1.json
   def destroy
     @panel.destroy
     respond_to do |format|
@@ -75,9 +68,8 @@ class PanelsController < ApplicationController
       @panel = Panel.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Permit everything, because it's not exposed to the internet
     def panel_params
-      params.require(:panel).permit(:name, :width, :height, :content,
-                                    :active, :style_ids, :css, :js)
+      params.require(:panel).permit!
     end
 end

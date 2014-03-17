@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @panel_data.name %>
+</p>
+
+<p>
+  <strong>Panel:</strong>
+  <%= @panel_data.panel_id %>
+</p>
+
+<%= link_to 'Edit', edit_panel_data_path(@panel_data) %> |
+<%= link_to 'Back', panel_datas_path %>

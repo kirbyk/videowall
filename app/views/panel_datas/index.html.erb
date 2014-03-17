@@ -1,0 +1,29 @@
+<h1>Listing panel_datas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Panel</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @panel_datas.each do |panel_data| %>
+      <tr>
+        <td><%= panel_data.name %></td>
+        <td><%= panel_data.panel_id %></td>
+        <td><%= link_to 'Show', panel_data %></td>
+        <td><%= link_to 'Edit', edit_panel_data_path(panel_data) %></td>
+        <td><%= link_to 'Destroy', panel_data, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Panel data', new_panel_data_path %>

@@ -25,5 +25,16 @@
   <%= @panel.active %>
 </p>
 
+<p>
+  <strong>Panel Data:</strong>
+  <% for panel_data in @panel.panel_datas %>
+    <%= panel_data.name %><br>
+    <% for text in panel_data.texts %>
+      <strong>Text Content</strong>
+      <%= text.content %>
+    <% end %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_panel_path(@panel) %> |
 <%= link_to 'Back', panels_path %>
