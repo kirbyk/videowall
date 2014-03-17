@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313211312) do
+ActiveRecord::Schema.define(version: 20140317213715) do
+
+  create_table "panel_datas", force: true do |t|
+    t.string   "name"
+    t.integer  "panel_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "panel_datas", ["panel_id"], name: "index_panel_datas_on_panel_id"
 
   create_table "panels", force: true do |t|
     t.string   "name"
@@ -37,5 +46,14 @@ ActiveRecord::Schema.define(version: 20140313211312) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "texts", force: true do |t|
+    t.text     "content"
+    t.integer  "panel_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "texts", ["panel_data_id"], name: "index_texts_on_panel_data_id"
 
 end

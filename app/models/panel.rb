@@ -1,8 +1,12 @@
 class Panel < ActiveRecord::Base
   has_and_belongs_to_many :styles
+  has_many :panel_datas, dependent: :destroy
+  accepts_nested_attributes_for :panel_datas, reject_if: lambda {|a| a[:name].blank?},
+                                              allow_destroy: true
   validates_presence_of :content, :height, :width, :name
   validates_inclusion_of :active, :in => [true, false]
   # TODO add validation for css
+  # TODO add vaildation for width & height
 
   def html
     return wrapper(self.content)
