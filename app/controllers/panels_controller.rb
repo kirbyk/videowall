@@ -1,9 +1,19 @@
 class PanelsController < ApplicationController
-  before_action :set_panel, only: [:show, :edit, :update, :destroy]
+  before_action :set_panel, only: [:show, :edit, :update, :destroy, :data]
   before_filter :prepare_styles
 
   def wall
     @panels = Panel.where(active: true).order(order: :asc)
+  end
+
+  def data
+    @data = @panel.panel_datas.includes(:texts)
+    respond_to do |format|
+      format.json { render json: @data.to_json({
+          except: [:created_at, :updated_at],
+          include: { :texts => {except: [:created_at, :updated_at]} }
+        }) }
+    end
   end
 
   def index
