@@ -1,4 +1,6 @@
 Videowall::Application.routes.draw do 
+  resources :configurations
+
   resources :panel_datas
   resources :panels
   root 'panels#wall'

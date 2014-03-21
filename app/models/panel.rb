@@ -1,6 +1,7 @@
 class Panel < ActiveRecord::Base
   has_and_belongs_to_many :styles
   has_many :panel_datas, dependent: :destroy
+  has_many :orderings
   accepts_nested_attributes_for :panel_datas, reject_if: lambda {|a| a[:name].blank?},
                                               allow_destroy: true
   validates_presence_of :content, :height, :width, :name
