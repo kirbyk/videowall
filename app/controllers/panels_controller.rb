@@ -7,13 +7,7 @@ class PanelsController < ApplicationController
   end
 
   def data
-    @data = @panel.panel_datas.includes(:texts)
-    respond_to do |format|
-      format.json { render json: @data.as_json({
-          except: [:created_at, :updated_at],
-          include: { :texts => {except: [:created_at, :updated_at]} }
-        }) }
-    end
+    @data = @panel
   end
 
   def index
