@@ -9,6 +9,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'binding_of_caller'
-gem 'better_errors'
+gem 'better_errors', '>= 2.8.0'
 gem 'pry-rails'
 gem 'puma'
